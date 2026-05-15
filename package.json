@@ -1,28 +1,32 @@
-# VK Mini App ID
-VK_APP_ID=54584981
-
-# VK ID администратора приложения
-VK_ADMIN_ID=1057236881
-
-# Сервисный ключ VK хранить ТОЛЬКО на сервере.
-# Не вставляйте его в src/*, public/* и не коммитьте в Git.
-VK_SERVICE_KEY=
-
-# Клиентский секрет для проверки подписи launch-параметров.
-# В production без VK_CLIENT_SECRET сокеты будут заблокированы.
-VK_CLIENT_SECRET=
-VK_SIGN_MAX_AGE_SECONDS=172800
-
-# Сервер
-PORT=3001
-CLIENT_URL=http://localhost:5173
-NODE_ENV=development
-TRUST_PROXY=0
-
-# SQLite по умолчанию. На Render лучше использовать /var/data/bar.sqlite с Persistent Disk.
-SQLITE_PATH=./data/bar.sqlite
-MAX_STORED_MESSAGES=5000
-MAX_ADMIN_LOGS=5000
-MAX_TRANSACTIONS=20000
-ADMIN_INITIAL_BJT=1000
-DEFAULT_INITIAL_BJT=50
+{
+  "name": "blackjacktorroclub-bar-znakomstv-vk",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite --host 0.0.0.0 --port 5173",
+    "server": "node --no-warnings=ExperimentalWarning server/index.js",
+    "build": "vite build",
+    "start": "NODE_ENV=production node --no-warnings=ExperimentalWarning server/index.js",
+    "check": "node --check server/index.js && node --check server/db.js && node --check server/vk-sign-check.js && npm run build"
+  },
+  "dependencies": {
+    "@vkontakte/vk-bridge": "^3.0.1",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "express": "^4.18.2",
+    "express-rate-limit": "^7.2.1",
+    "helmet": "^8.1.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "socket.io": "^4.7.2",
+    "socket.io-client": "^4.7.2"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-react": "6.0.1",
+    "vite": "8.0.13"
+  },
+  "engines": {
+    "node": ">=22.16.0 <25.0.0"
+  }
+}
