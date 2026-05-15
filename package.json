@@ -1,0 +1,28 @@
+# VK Mini App ID
+VK_APP_ID=54584981
+
+# VK ID администратора приложения
+VK_ADMIN_ID=1057236881
+
+# Сервисный ключ VK хранить ТОЛЬКО на сервере.
+# Не вставляйте его в src/*, public/* и не коммитьте в Git.
+VK_SERVICE_KEY=
+
+# Клиентский секрет для проверки подписи launch-параметров.
+# В production без VK_CLIENT_SECRET сокеты будут заблокированы.
+VK_CLIENT_SECRET=
+VK_SIGN_MAX_AGE_SECONDS=172800
+
+# Сервер
+PORT=3001
+CLIENT_URL=http://localhost:5173
+NODE_ENV=development
+TRUST_PROXY=0
+
+# SQLite по умолчанию. На Render лучше использовать /var/data/bar.sqlite с Persistent Disk.
+SQLITE_PATH=./data/bar.sqlite
+MAX_STORED_MESSAGES=5000
+MAX_ADMIN_LOGS=5000
+MAX_TRANSACTIONS=20000
+ADMIN_INITIAL_BJT=1000
+DEFAULT_INITIAL_BJT=50
